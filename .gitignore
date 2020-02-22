@@ -1,0 +1,61 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+# exclude everything
+logs/*
+
+# exception to the rule
+!logs/.gitkeep 
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+/nbactions.xml
+/nb-configuration.xml
+/src/main/resources/static/plugins/overlayScrollbars/
+/src/main/resources/static/plugins/bootstrap4-duallistbox/
+/src/main/resources/static/plugins/fullcalendar-interaction/
+/src/main/resources/static/plugins/bootstrap-switch/
+/src/main/resources/static/plugins/filterizr/
+/src/main/resources/static/plugins/jquery-mapael/
+/src/main/resources/static/plugins/fullcalendar-daygrid/
+/src/main/resources/static/plugins/flot/
+/src/main/resources/static/plugins/fullcalendar-timegrid/
+/src/main/resources/static/plugins/flot-old/
+/src/main/resources/static/plugins/bs-custom-file-input/
+/src/main/resources/static/plugins/bootstrap-colorpicker/
+/src/main/resources/static/plugins/chart.js/
+/src/main/resources/static/plugins/summernote/
+/src/main/resources/static/plugins/jszip/
+/src/main/resources/static/plugins/fullcalendar-bootstrap/
+/src/main/resources/static/plugins/fullcalendar/
+/src/main/resources/static/plugins/sparklines/
+/src/main/resources/static/plugins/bootstrap-slider/
+/src/main/resources/static/plugins/jqvmap/
+/src/main/resources/static/plugins/ion-rangeslider/
+/src/main/resources/static/plugins/ekko-lightbox/

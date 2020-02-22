@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+The MIT License
+
+Copyright 2020 Ozar <gosocial2@ozar.net>.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>About Country & Cities Sample Spring MVC App</title>
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="../../static/plugins/fontawesome-free/css/all.min.css" th:href="@{/static/plugins/fontawesome-free/css/all.min.css}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../static/css/adminlte.min.css" th:href="@{/static/css/adminlte.min.css}">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    </head>
+    <body class="hold-transition sidebar-mini">
+
+        <div class="wrapper">
+
+            <nav th:replace="fragments/mainLayout :: header">
+            </nav>
+            
+            <aside th:replace="fragments/header :: sidebar">
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <main th:insert="fragments/mainLayout :: content(title=${pageTitle}, value=~{ :: #about_card})">  
+                
+            <!-- Main content -->
+            <div class="content">
+                <div  class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="card card-info card-outline" id="about_card">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0">About Country & City Sample App</h5>
+                                  </div>
+                                <div class="card-body">
+
+                                    <p class="card-text">
+                                        A Sample Spring MVC CRUD Application with Thymeleaf, HTML5, CSS3 and Bootstrap4-based AdminLTE v3 template.
+                                    </p>
+                                    <p>In this application, you can see a demonstration of using <strong>Spring Boot</strong>, <strong>Spring Data JPA</strong>, <strong>MySQL</strong>, <strong>Spring MVC</strong>, <strong>Thymeleaf</strong>, <strong>HTML5</strong>, <strong>CSS3</strong> and <strong>Bootstrap</strong> v4 altogether to build a foundational web application with an admin theme.</p>
+
+                                    <p>Currently code in this repo includes entity models for inter-related Country City and Person database tables, as well as controllers and views for country and city.</p>
+
+                                    <p>Controllers and views for Person/People module not yet included in the repo (due to some refactoring work in progress).</p>
+
+                                    <p>MySQL database SQL dump is at the root directory in a file called <code>countrycity.sql</code>.</p>
+
+                                    <p>Used in "Getting Started with Web Development" tutorials and training courses by <a href="https://gokhan.ozar.net" title="All Systems GO -  a few of the things Gökhan Ozar does">Gökhan Ozar</a> </p>
+
+                                </div><!--//.card-body-->
+                            </div><!--//.card-->
+                        </div><!-- /.col-sm-12 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div> <!-- /.content -->
+            
+             </main> 
+
+            <footer th:replace="fragments/mainLayout :: footer(~{})">
+            </footer>
+
+        </div><!-- ./wrapper -->
+    </body>
+</html>

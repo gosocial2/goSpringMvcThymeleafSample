@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!--/* Head takes 3 arguments that are fragments */-->
+    <head th:fragment="head(title, links)">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!--/*  Title will be replaced by their respective titles in the calling template. */-->
+        <title th:replace="${title}">Your Generated App</title>
+
+        <!--/* Default links; can be replaced by the calling templates */-->
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="../../static/plugins/fontawesome-free/css/all.min.css" th:href="@{/static/plugins/fontawesome-free/css/all.min.css}">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+        <!-- Select2 -->
+        <link rel="stylesheet" href="../../static/plugins/select2/css/select2.min.css" th:href="@{/static/plugins/select2/css/select2.min.css}">
+        <link rel="stylesheet" href="../../static/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" th:href="@{/static/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../static/css/adminlte.min.css" th:href="@{/static/css/adminlte.min.css}">
+
+        <!--/* Per-page placeholder for additional links */-->
+        <th:block th:if="${!links.isEmpty()}" th:replace="${links}" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <nav th:fragment="header" class="main-header navbar navbar-expand navbar-white navbar-light" th:replace="fragments/header :: header">
+            <!-- ============================================================================ -->
+            <!-- This content is only used for static prototyping purposes (natural templates)-->
+            <!-- and is therefore entirely optional, as this markup fragment will be replaced -->
+            <!-- with "fragments/header.html" at runtime.                                     -->
+            <!-- ============================================================================ -->
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/index" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <aside th:fragment="sidebar" th:replace="fragments/header :: sidebar">
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper go-main-layout" th:fragment="content(title, value)">
+            
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+              <div class="container-fluid">
+                <div class="row mb-2">
+                  <div class="col-sm-6">
+                    <h1 class="m-0 text-dark" th:text="${pageTitle}">Your Module</h1>
+                  </div><!-- /.col -->
+
+                  </div><!-- /.row -->
+              </div><!-- /.container-fluid -->
+            </section><!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid" th:insert="${value}">
+
+                </div><!-- /.container-fluid -->
+            </section> <!-- /.content -->
+
+        </div><!-- /.content-wrapper -->
+
+        <!--/* Footer fragment */-->
+        <footer th:fragment="footer(scripts)" class="text-center">
+            &copy; 2020 <a href="https://gokhan.ozar.net" title="All Systems GO -  a few of the things Gökhan Ozar does..." target="_blank">Gökhan Ozar</a>, All rights reserved.
+
+            <!--/* Default scripts; can be replaced by the calling templates */-->
+            <script src="../../static/plugins/jquery/jquery.min.js" th:src="@{/static/plugins/jquery/jquery.min.js}"></script>
+            <script src="../../static/plugins/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/static/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+            <script src="../../static/js/adminlte.min.js" th:src="@{/static/js/adminlte.min.js}"></script>
+
+            <!--/* Per-page placeholder for additional scripts */-->
+            <th:block th:replace="${scripts}" />
+
+        </footer>
+
+    </div><!-- ./wrapper -->
+
+
+</body>
+</html>

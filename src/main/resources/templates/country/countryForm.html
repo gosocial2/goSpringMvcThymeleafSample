@@ -1,0 +1,33 @@
+                                      <div class="col-md-11" th:fragment="formFields">
+                                        
+                                            <div class="form-group row">
+                                                <label for="isoCode" class="col-form-label">ISO Code</label>
+                                                <input
+                                                    type="text" th:field="*{isoCode}" class="form-control" id="isoCode" minlength="2" maxlength="2" 
+                                                    placeholder="Example: AR"> 
+                                                <span
+                                                    th:if="${#fields.hasErrors('isoCode')}" th:errors="*{isoCode}"
+                                                    class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="countryName" class="col-form-label">Country Name</label> 
+                                                <input
+                                                    type="text" th:field="*{countryName}" class="form-control" id="countryName"
+                                                    placeholder="Example: Argentina"> 
+                                                <span
+                                                    th:if="${#fields.hasErrors('countryName')}" th:errors="*{countryName}"
+                                                    class="text-danger"></span>
+                                            </div>
+                                            
+                                            <div class="form-group row">
+
+                                                <div class="col-sm-11">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" th:field="*{enabled}" id="enabled"  value="1"  class="form-check-input">
+                                                        <label for="enabled" class="form-check-label">Enabled</label>
+                                                    </div><!--//.form-check -->
+                                                </div>
+
+                                            </div><!--//.form-group -->
+                                        
+                                    </div><!--//.col -->

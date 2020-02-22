@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+    <!--/* Title of this template will be passed to the head fragment along with custom links and scripts */-->
+    <head th:replace="fragments/mainLayout :: head(~{this :: title}, ~{this :: .custom-link})">
+        <title>Countries</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- DataTables -->
+        <link class="custom-link" rel="stylesheet" href="../../static/plugins/datatables-bs4/css/dataTables.bootstrap4.css" th:href="@{/static/plugins/datatables-bs4/css/dataTables.bootstrap4.css}">
+
+    </head>
+    <body class="hold-transition sidebar-mini">
+
+        <div class="wrapper">
+
+            <nav th:replace="fragments/mainLayout :: header">
+            </nav>
+            
+            <aside th:replace="fragments/mainLayout :: sidebar">
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <main th:insert="fragments/mainLayout :: content(title=${pageTitle}, value=~{ :: #country_list})">    
+
+                <!-- Main content -->
+                <section class="content">
+                    <div  class="container-fluid">
+                        <div class="card card-info" id="country_list">
+                            <div class="card-header">
+                            <h3 class="card-title" id="module_title">Countries</h3>
+                            </div>
+                                <div class="card-body">
+                                <table class="table table-bordered table-striped using-data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Action(s)</th>
+                                            <th>ISO Code</th>
+                                            <th>Name</th>
+                                            <th>Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:if="${countries.empty}">
+                                            <td colspan="2">No countries exist in the database.</td> 
+                                        </tr>
+                                        <tr th:each="country : ${countries}">
+                                            <td>
+                                                <a th:href="@{/country/edit/{isoCode}(isoCode=${country.isoCode})}"
+                                                   class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a>
+                                                <a
+                                                    th:href="@{/country/delete/{id}(id=${country.isoCode})}" th:attr="data-href=@{/country/delete/{id}(id=${country.isoCode})}" data-toggle="modal" data-target="#confirm2delete"
+                                                    class="btn btn-danger ml-2"><i class="fas fa-times"></i></a>
+                                            </td>
+                                            <td th:text="${country.isoCode}">
+                                                <a href="#" th:href="@{/country/edit/{isoCode}(isoCode=${country.isoCode})}" th:text="${country.countryName}">Name ...</a>
+                                            </td>
+                                            <td th:text="${country.countryName}"></td>
+                                            <td class="align-middle text-center text-success">
+                                                <i th:if="${country.enabled}" class="fas fa-check"></i>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                </div><!--//.card-body -->
+                                <div class="card-footer">
+                                    
+                                        <a  th:href="@{/country/new}" href="/country/new" class="btn btn-info float-right">Add a new Country</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section> <!-- /.content -->
+            </main> 
+            
+            
+            <div id="confirm2delete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm2deleteLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="confirm2deleteLabel">Confirm to delete record</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this record?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-danger btn-confirm"> Yes, Delete It! </a>
+                        </div><!--//.modal-footer -->
+                    </div><!--//.modal-content -->
+                </div><!--//.modal-dialog -->
+            </div><!--//.modal -->
+
+            <footer th:replace="fragments/mainLayout :: footer(~{this :: .custom-script})">
+                Footer
+
+                <!-- DataTables -->
+                <script class="custom-script" src="../../static/plugins/datatables/jquery.dataTables.js" th:src="@{/static/plugins/datatables/jquery.dataTables.js}"></script>
+                <script class="custom-script" src="../../static/plugins/datatables-bs4/js/dataTables.bootstrap4.js" th:src="@{/static/plugins/datatables-bs4/js/dataTables.bootstrap4.js}"></script>
+                <script class="custom-script">
+                    $(function () {
+                        $('.using-data-table').DataTable({
+                            "responsive": true,
+                            "paging": true,
+                            "lengthChange": true,
+                            "searching": true,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": false,
+                        });
+                        
+                        $('#confirm2delete').on('show.bs.modal', function (e) {
+                            $(this).find('.btn-confirm').attr('href', $(e.relatedTarget).data('href'));
+                        });
+                    });
+                </script>
+            </footer>
+
+        </div><!-- ./wrapper -->
+
+    </body>
+</html>
