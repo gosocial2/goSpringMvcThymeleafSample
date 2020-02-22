@@ -3,7 +3,7 @@
 
 In this application, you can see a demonstration of using **Spring Boot**, **Spring Data JPA**, **MySQL**, **Spring MVC**, **Thymeleaf**, **HTML5**, **CSS3** and **Bootstrap** all together to build a foundational web application.
 
-Currently code in this repo includes entity models for inter-related Country and City database tables, as well as controllers and views for country and city.
+Currently code in this repo includes entity models for inter-related Country and City database tables, as well as controllers and views for country and city records.
 
 Controllers and views for Person/People module not yet included in the repo (due to some refactoring work in progress).
 
