@@ -7,9 +7,7 @@ In this application, you can see a demonstration of using **Spring Boot**, **Spr
 
 Currently code in this repo includes entity models for inter-related Country and City database tables, as well as controllers and views for country and city records.
 
-Controllers and views for Person/People module not yet included in the repo (due to some refactoring work in progress).
-
-MySQL database SQL dump is at the root directory in a file called countrycityperson.sql
+MySQL database SQL dump is at the root directory in a file called countrycity.sql
 
 Used in "Getting Started with Web Development" tutorials and training courses by [Gokhan Ozar](https://gokhan.ozar.net "All Systems GO") 
 
@@ -20,3 +18,6 @@ Used in "Getting Started with Web Development" tutorials and training courses by
 
 ### Grid View
 ![Grid View](screenshot2.png)
+
+### Database E-R Diagram
+![Database E-R Diagram](NavicatModelScreenshot.png)
