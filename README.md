@@ -21,3 +21,5 @@ Used in "Getting Started with Web Development" tutorials and training courses by
 
 ### Database E-R Diagram
 ![Database E-R Diagram](NavicatModelScreenshot.png)
+
+A [tutorial](https://www.arclerit.com/blog/new-data-modeling-capabilities-of-navicat-15-in-action/) for designing the relational data model in Navicat and then exporting (DDL of) it to a database can be found at [www.arclerit.com/blog/new-data-modeling-capabilities-of-navicat-15-in-action](https://www.arclerit.com/blog/new-data-modeling-capabilities-of-navicat-15-in-action/)
